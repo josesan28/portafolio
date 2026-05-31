@@ -2,7 +2,7 @@ import './About.css'
 
 export default function About() {
   return (
-    <section className="about" id="about" aria-label="Sobre mÃ­">
+    <section className="about" id="about" aria-label="Sobre mí­">
       <div className="about__grid">
 
         {/* Columna izquierda: texto */}
@@ -73,11 +73,11 @@ export default function About() {
 
           {/* Habilidades rápidas */}
           <div className="about__skills">
-            {/* TODO: agrega o quita badges según tus tecnologías reales */}
             {[
-              'React', 'JavaScript', 'Node.js',
-              'REST APIs', 'Docker', 'Git',
-              'HTML', 'CSS',
+              'React', 'JavaScript', 'Node.js', 'Express.js', 
+              'Docker', 'Git',
+              'HTML', 'CSS', 'PostgreSQL', 'MySQL', 'SQLite',
+              'Python', 'Java', 'C++','Kotlin',
             ].map(skill => (
               <span key={skill} className="about__badge">
                 {skill}
