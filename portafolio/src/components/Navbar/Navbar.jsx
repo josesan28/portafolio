@@ -15,6 +15,10 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
+    setActiveHash(location.hash || '#about')
+  }, [location.hash, location.pathname])
+
+  useEffect(() => {
     const syncActiveHash = () => setActiveHash(window.location.hash || '#about')
     window.addEventListener('hashchange', syncActiveHash)
     window.addEventListener('sectionhashchange', syncActiveHash)
@@ -25,20 +29,20 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { to: '/#about', hash: '#about', label: 'Sobre mi' },
-    { to: '/#stack', hash: '#stack', label: 'Tecnologias' },
+    { to: '/#about', hash: '#about', label: 'Sobre mí' },
+    { to: '/#stack', hash: '#stack', label: 'Tecnologías' },
     { to: '/#projects', hash: '#projects', label: 'Proyectos' },
     { to: '/#contact', hash: '#contact', label: 'Contacto' },
   ]
 
-  const isHomeRoute = location.pathname === '/' || location.pathname === '/proyectos'
-  const currentHash = location.hash || activeHash || '#about'
+  const isHomeRoute = location.pathname === '/'
+  const currentHash = isHomeRoute ? activeHash : location.hash
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <nav className="navbar__inner" aria-label="Navegacion principal">
         <Link to="/#about" className="navbar__brand">
-          Jose Sanchez
+          José Sanchez
         </Link>
 
         <ul className="navbar__links">

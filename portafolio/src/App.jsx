@@ -1,4 +1,4 @@
-import { Navigate, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import RouterScrollManager from './components/RouterScrollManager/RouterScrollManager'
 import Home from './pages/Home/Home'
@@ -17,10 +17,6 @@ export default function App() {
               <Home />
             </Layout>
           }
-        />
-        <Route
-          path="/proyectos"
-          element={<Navigate to="/#projects" replace />}
         />
         <Route
           path="/proyectos/:projectId"
