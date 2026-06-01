@@ -47,8 +47,8 @@ export default function About() {
           <p className="about__role">Desarrollador Full-Stack Junior - Estudiante</p>
 
           <p className="about__bio">
-            Actualmente soy estudiante de Ingeniería en Ciencias de la Computación.
-            Aquí puedo ampliar un poco más quién soy y cómo trabajo.
+            Actualmente soy estudiante de Ingeniería en Ciencias de la Computación y Tecnologías de la Información.
+            Puedo construir aplicaciones web completas utilizando tecnologías modernas como React, Node.js y Docker. Me gusta aprender nuevas tecnologías y mejorar mis habilidades constantemente.
           </p>
 
           <div className="about__story">
