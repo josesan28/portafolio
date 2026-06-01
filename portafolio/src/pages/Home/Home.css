@@ -26,9 +26,9 @@
     linear-gradient(
       90deg,
       transparent 0%,
-      rgba(20, 20, 18, 0.12) 16%,
-      rgba(92, 143, 140, 0.34) 50%,
-      rgba(20, 20, 18, 0.12) 84%,
+      var(--color-ink-medium) 16%,
+      var(--color-accent-green-line) 50%,
+      var(--color-ink-medium) 84%,
       transparent 100%
     );
 }
@@ -41,7 +41,7 @@
   width: 12px;
   height: 12px;
   transform: translateX(-50%) rotate(45deg);
-  border: 1px solid rgba(92, 143, 140, 0.28);
+  border: 1px solid var(--color-accent-green-border-strong);
   background-color: var(--color-surface);
-  box-shadow: 0 8px 18px rgba(16, 24, 40, 0.06);
+  box-shadow: var(--shadow-sm);
 }

@@ -1,7 +1,7 @@
 /* Sección */
 .stack {
   padding: var(--space-2xl) 0;
-  border-bottom: 1px solid rgba(20, 20, 18, 0.08);
+  border-bottom: 1px solid var(--color-ink-soft);
 }
 
 /* Header */
@@ -71,8 +71,8 @@
 
 .stack__card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 38px rgba(16, 24, 40, 0.12);
-  border-color: rgba(20, 20, 18, 0.2);
+  box-shadow: var(--shadow-3xl);
+  border-color: var(--color-ink-heavy);
 }
 
 /* Fila superior */
@@ -100,7 +100,7 @@
   text-transform: uppercase;
   color: var(--color-accent-green-strong);
   background-color: var(--color-accent-green-soft);
-  border: 1px solid rgba(92, 143, 140, 0.22);
+  border: 1px solid var(--color-accent-green-border);
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-sm);
 }

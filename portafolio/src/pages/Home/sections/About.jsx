@@ -36,6 +36,20 @@ const actions = [
   },
 ]
 
+const timelineItems = [
+  {
+    date: '2024 - 2026',
+    title: 'Universidad del Valle de Guatemala',
+    description: 'Aquí escribo lo que he aprendido en esta etapa.',
+  },
+  {
+    date: '2026',
+    title: 'Proyecto destacado',
+    description: 'Voy a describir el proyecto de Software.',
+    current: true,
+  },
+]
+
 export default function About() {
   return (
     <section className="about" id="about" aria-label="Sobre mí">
@@ -54,17 +68,16 @@ export default function About() {
           <div className="about__story">
             <h2 className="about__story-title">Mi experiencia</h2>
             <div className="about__timeline">
-              <AboutTimelineItem
-                date="2024 - 2026"
-                title="Universidad del Valle de Guatemala"
-                description="Aquí escribo lo que he aprendido en esta etapa."
-              />
-              <AboutTimelineItem
-                date="2026"
-                title="Proyecto destacado"
-                description="Voy a describir el proyecto de Software."
-                current
-              />
+              {timelineItems.map((item, index) => (
+                <AboutTimelineItem
+                  key={`${item.date}-${item.title}`}
+                  date={item.date}
+                  title={item.title}
+                  description={item.description}
+                  current={item.current}
+                  index={index}
+                />
+              ))}
             </div>
           </div>
 

@@ -1,0 +1,35 @@
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0);
+  transition: opacity 0.3s ease;
+  will-change: transform, opacity;
+  background:
+    radial-gradient(
+      circle,
+      var(--color-accent-green-glow-strong) 0%,
+      var(--color-ink-muted) 24%,
+      var(--color-accent-green-deep-glow) 46%,
+      var(--color-accent-shadow-soft) 62%,
+      transparent 76%
+    );
+  filter: blur(26px);
+  mix-blend-mode: multiply;
+}
+
+.cursor-glow--visible {
+  opacity: 0.9;
+}
+
+@media (max-width: 1023px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-glow {
+    display: none;
+  }
+}

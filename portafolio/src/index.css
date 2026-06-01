@@ -7,31 +7,74 @@
 
 /* Variables de diseño */
 :root {
-  /* Colores */
-  --color-bg:          #f4f1eb;
-  --color-surface:     #ffffff;
+  /* Colores base */
+  --color-bg: #f4f1eb;
+  --color-bg-top: #faf7f0;
+  --color-bg-bottom: #efeadf;
+  --color-surface: #ffffff;
   --color-surface-alt: #f1ece3;
-  --color-border:      #ccc5b9;
-  --color-text:        #141412;
-  --color-text-muted:  #5a5751;
-  --color-accent:      #1f2622;
+  --color-border: #ccc5b9;
+  --color-text: #141412;
+  --color-text-muted: #5a5751;
+  --color-text-muted-strong: rgba(90, 87, 81, 0.82);
+  --color-accent: #1f2622;
   --color-accent-strong: #090909;
   --color-accent-soft: rgba(31, 38, 34, 0.1);
   --color-accent-green: #5c8f8c;
   --color-accent-green-soft: rgba(92, 143, 140, 0.14);
   --color-accent-green-strong: #365a58;
 
+  /* Transparencias neutrales */
+  --color-ink-softest: rgba(20, 20, 18, 0.06);
+  --color-ink-soft: rgba(20, 20, 18, 0.08);
+  --color-ink-muted: rgba(20, 20, 18, 0.1);
+  --color-ink-medium: rgba(20, 20, 18, 0.12);
+  --color-ink-strong: rgba(20, 20, 18, 0.14);
+  --color-ink-heavy: rgba(20, 20, 18, 0.2);
+  --color-selection: rgba(20, 20, 18, 0.16);
+
+  /* Transparencias de superficie */
+  --color-surface-veil: rgba(246, 245, 241, 0.98);
+  --color-surface-veil-strong: rgba(246, 245, 241, 0.99);
+  --color-surface-frost: rgba(255, 255, 255, 0.78);
+  --color-surface-overlay-soft: rgba(255, 255, 255, 0.38);
+  --color-surface-overlay: rgba(255, 255, 255, 0.55);
+  --color-surface-overlay-line: rgba(255, 255, 255, 0.5);
+  --color-surface-sheen: rgba(255, 255, 255, 0.18);
+  --color-surface-elevated: rgba(241, 236, 227, 0.56);
+
+  /* Transparencias de acento */
+  --color-accent-green-line: rgba(92, 143, 140, 0.34);
+  --color-accent-green-line-strong: rgba(92, 143, 140, 0.5);
+  --color-accent-green-solid: rgba(92, 143, 140, 0.95);
+  --color-accent-green-border-soft: rgba(92, 143, 140, 0.2);
+  --color-accent-green-border: rgba(92, 143, 140, 0.22);
+  --color-accent-green-border-medium: rgba(92, 143, 140, 0.24);
+  --color-accent-green-border-strong: rgba(92, 143, 140, 0.28);
+  --color-accent-green-border-hover: rgba(92, 143, 140, 0.36);
+  --color-accent-green-border-emphasis: rgba(92, 143, 140, 0.35);
+  --color-accent-green-border-focus: rgba(92, 143, 140, 0.42);
+  --color-accent-green-fill-strong: rgba(212, 232, 227, 0.92);
+  --color-accent-green-glow-soft: rgba(92, 143, 140, 0.08);
+  --color-accent-green-glow: rgba(92, 143, 140, 0.12);
+  --color-accent-green-glow-strong: rgba(92, 143, 140, 0.18);
+  --color-accent-green-deep-glow: rgba(54, 90, 88, 0.08);
+  --color-accent-shadow-soft: rgba(31, 38, 34, 0.04);
+  --color-accent-warm-glow: rgba(196, 125, 58, 0.18);
+  --color-accent-warm-glow-soft: rgba(196, 125, 58, 0.12);
+  --color-accent-warm-outline: rgba(196, 125, 58, 0.2);
+
   /* Tipografía */
-  --font-sans:  'Inter', system-ui, sans-serif;
-  --font-mono:  'JetBrains Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   --font-display: 'DM Sans', sans-serif;
 
   /* Espaciado */
-  --space-xs:  4px;
-  --space-sm:  8px;
-  --space-md:  16px;
-  --space-lg:  24px;
-  --space-xl:  48px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 48px;
   --space-2xl: 80px;
 
   /* Contenedor */
@@ -41,6 +84,23 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
+
+  /* Sombras */
+  --shadow-xs: 0 8px 16px rgba(16, 24, 40, 0.12);
+  --shadow-sm: 0 8px 18px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 10px 18px rgba(16, 24, 40, 0.12);
+  --shadow-md-hover: 0 10px 18px rgba(16, 24, 40, 0.14);
+  --shadow-md-strong: 0 10px 24px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 12px 24px rgba(16, 24, 40, 0.06);
+  --shadow-lg-strong: 0 12px 22px rgba(16, 24, 40, 0.08);
+  --shadow-xl: 0 14px 24px rgba(16, 24, 40, 0.16);
+  --shadow-2xl: 0 18px 34px rgba(16, 24, 40, 0.1);
+  --shadow-2xl-soft: 0 18px 34px rgba(16, 24, 40, 0.08);
+  --shadow-3xl: 0 20px 38px rgba(16, 24, 40, 0.12);
+  --shadow-4xl: 0 22px 40px rgba(16, 24, 40, 0.12);
+  --shadow-4xl-strong: 0 22px 44px rgba(16, 24, 40, 0.14);
+  --shadow-5xl: 0 28px 48px rgba(16, 24, 40, 0.16);
+  --shadow-focus-ring: 0 0 0 4px rgba(92, 143, 140, 0.08);
 }
 
 /* Base */
@@ -52,9 +112,9 @@ html {
 body {
   font-family: var(--font-sans);
   background:
-    radial-gradient(circle at 12% 8%, rgba(20, 20, 18, 0.08), transparent 22%),
-    radial-gradient(circle at 88% 0%, rgba(20, 20, 18, 0.1), transparent 20%),
-    linear-gradient(180deg, #faf7f0 0%, var(--color-bg) 42%, #efeadf 100%);
+    radial-gradient(circle at 12% 8%, var(--color-ink-soft), transparent 22%),
+    radial-gradient(circle at 88% 0%, var(--color-ink-muted), transparent 20%),
+    linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg) 42%, var(--color-bg-bottom) 100%);
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
@@ -84,10 +144,10 @@ body::after {
   z-index: 0;
   opacity: 0.14;
   background-image:
-    linear-gradient(rgba(20, 20, 18, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 20, 18, 0.06) 1px, transparent 1px),
-    radial-gradient(circle at 20% 0%, rgba(20, 20, 18, 0.08), transparent 28%),
-    radial-gradient(circle at 85% 12%, rgba(20, 20, 18, 0.06), transparent 26%);
+    linear-gradient(var(--color-ink-softest) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-ink-softest) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0%, var(--color-ink-soft), transparent 28%),
+    radial-gradient(circle at 85% 12%, var(--color-ink-softest), transparent 26%);
   background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%;
   mix-blend-mode: multiply;
 }
@@ -98,8 +158,13 @@ body::after {
   z-index: 1;
 }
 
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
 ::selection {
-  background-color: rgba(20, 20, 18, 0.16);
+  background-color: var(--color-selection);
   color: var(--color-text);
 }
 
