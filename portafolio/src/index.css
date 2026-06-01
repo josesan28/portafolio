@@ -8,13 +8,18 @@
 /* Variables de diseño */
 :root {
   /* Colores */
-  --color-bg:          #fafaf5;
+  --color-bg:          #f4f1eb;
   --color-surface:     #ffffff;
-  --color-surface-alt: #f0f0eb;
-  --color-border:      #e0e0da;
-  --color-text:        #1a1c19;
-  --color-text-muted:  #5f5e5e;
-  --color-accent:      #000000;
+  --color-surface-alt: #f1ece3;
+  --color-border:      #ccc5b9;
+  --color-text:        #141412;
+  --color-text-muted:  #5a5751;
+  --color-accent:      #1f2622;
+  --color-accent-strong: #090909;
+  --color-accent-soft: rgba(31, 38, 34, 0.1);
+  --color-accent-green: #5c8f8c;
+  --color-accent-green-soft: rgba(92, 143, 140, 0.14);
+  --color-accent-green-strong: #365a58;
 
   /* Tipografía */
   --font-sans:  'Inter', system-ui, sans-serif;
@@ -46,11 +51,56 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-bg);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(20, 20, 18, 0.08), transparent 22%),
+    radial-gradient(circle at 88% 0%, rgba(20, 20, 18, 0.1), transparent 20%),
+    linear-gradient(180deg, #faf7f0 0%, var(--color-bg) 42%, #efeadf 100%);
   color: var(--color-text);
   line-height: 1.6;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
   -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240' preserveAspectRatio='none'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  mix-blend-mode: multiply;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(20, 20, 18, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 20, 18, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0%, rgba(20, 20, 18, 0.08), transparent 28%),
+    radial-gradient(circle at 85% 12%, rgba(20, 20, 18, 0.06), transparent 26%);
+  background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%;
+  mix-blend-mode: multiply;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background-color: rgba(20, 20, 18, 0.16);
+  color: var(--color-text);
 }
 
 img {

@@ -1,5 +1,6 @@
 import About from './sections/About'
 import Stack from './sections/Stack'
+import Projects from '../Projects/Projects'
 import './Home.css'
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className="home">
       <About />
       <Stack />
+      <Projects />
     </div>
   )
 }

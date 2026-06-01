@@ -94,13 +94,6 @@ const technologies = [
   },
   {
     category: 'Lenguaje',
-    name: 'C++',
-    icon: '/tech/cpp.svg',
-    reason:
-      'Algoritmos, estructuras de datos y conceptos de bajo nivel cuando necesito más control sobre el programa.',
-  },
-  {
-    category: 'Lenguaje',
     name: 'Kotlin',
     icon: '/tech/kotlin.svg',
     reason:

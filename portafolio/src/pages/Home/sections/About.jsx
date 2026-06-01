@@ -2,16 +2,11 @@ import './About.css'
 
 export default function About() {
   return (
-    <section className="about" id="about" aria-label="Sobre mí­">
+    <section className="about" id="about" aria-label="Sobre mí">
       <div className="about__grid">
-
-        {/* Columna izquierda: texto */}
         <div className="about__content">
+          <span className="about__eyebrow">Sobre mí</span>
 
-          {/* Etiqueta superior */}
-          <span className="about__eyebrow">Sobre mí­</span>
-
-          {/* Nombre y tí­tulo */}
           <h1 className="about__name">
             José Sanchez
           </h1>
@@ -19,27 +14,24 @@ export default function About() {
             Desarrollador Full-Stack Junior - Estudiante
           </p>
 
-          {/* Descripción principal */}
           <p className="about__bio">
-            Actualmente soy estudiante de Ingeniería en Ciencias de la Computación. SIGO DESPUÉS.
+            Actualmente soy estudiante de Ingeniería en Ciencias de la Computación.
+            Aquí puedo ampliar un poco más quién soy y cómo trabajo.
           </p>
 
-          {/* Historia rápida / trayectoria */}
           <div className="about__story">
-            <h2 className="about__story-title">Mi trayectoria</h2>
+            <h2 className="about__story-title">Mi experiencia</h2>
             <div className="about__timeline">
-
               <div className="about__timeline-item">
                 <span className="about__timeline-date">
                   2024 - 2026
                 </span>
                 <div className="about__timeline-body">
                   <strong>
-                    {/* TODO: nombre del estudio o institución */}
                     Universidad del Valle de Guatemala
                   </strong>
                   <p>
-                    Qué he aprendido.
+                    Aquí escribo lo que he aprendido en esta etapa.
                   </p>
                 </div>
               </div>
@@ -50,34 +42,22 @@ export default function About() {
                 </span>
                 <div className="about__timeline-body">
                   <strong>
-                    Experiencia o proyecto destacado
+                    Proyecto destacado
                   </strong>
                   <p>
-                    Proyecto de Software.
+                    Voy a describir el proyecto de Software.
                   </p>
                 </div>
               </div>
-
-              <div className="about__timeline-item about__timeline-item--current">
-                <span className="about__timeline-date">Hoy</span>
-                <div className="about__timeline-body">
-                  <strong>Actualmente</strong>
-                  <p>
-                    Qué estoy haciendo ahorita.
-                  </p>
-                </div>
-              </div>
-
             </div>
           </div>
 
-          {/* Habilidades rápidas */}
           <div className="about__skills">
             {[
-              'React', 'JavaScript', 'Node.js', 'Express.js', 
+              'React', 'JavaScript', 'Node.js', 'Express.js',
               'Docker', 'Git',
               'HTML', 'CSS', 'PostgreSQL', 'MySQL', 'SQLite',
-              'Python', 'Java', 'C++','Kotlin',
+              'Python', 'Java', 'Kotlin',
             ].map(skill => (
               <span key={skill} className="about__badge">
                 {skill}
@@ -85,7 +65,6 @@ export default function About() {
             ))}
           </div>
 
-          {/* Botones de contacto */}
           <div className="about__actions">
             <a
               href="mailto:san24092@uvg.edu.gt"
@@ -102,18 +81,16 @@ export default function About() {
               GitHub
             </a>
           </div>
-
         </div>
 
-        {/* Columna derecha: foto */}
         <div className="about__photo-wrapper">
           <div className="about__photo-frame">
             {/*
-              TODO: reemplazar src con foto.
+              Aquí reemplazo la foto por la mía.
             */}
             <img
               src="/foto-perfil.jpg"
-              alt="Foto de perfil de Tu Nombre"
+              alt="Mi foto"
               className="about__photo"
               onError={(e) => {
                 e.target.style.display = 'none'
@@ -121,13 +98,11 @@ export default function About() {
               }}
             />
             <div className="about__photo-placeholder" style={{ display: 'none' }}>
-              <span>Foto</span>
+              <span>Mi foto aquí</span>
             </div>
           </div>
-          {/* Detalle */}
           <div className="about__photo-decoration" aria-hidden="true" />
         </div>
-
       </div>
     </section>
   )

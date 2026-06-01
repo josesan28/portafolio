@@ -15,20 +15,17 @@ export default function Navbar() {
     { href: '#about', label: 'Sobre mí' },
     { href: '#stack', label: 'Tecnologías' },
     { href: '#projects', label: 'Proyectos' },
-    { href: '#contact', label: 'Contacto' },
   ]
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <nav className="navbar__inner" aria-label="Navegación principal">
-
         <a href="#about" className="navbar__brand">
           José Sanchez
         </a>
 
-        {/* Desktop links */}
         <ul className="navbar__links">
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="navbar__link">
                 {link.label}
@@ -37,7 +34,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CV button */}
         <a
           href="/cv.pdf"
           target="_blank"
@@ -48,10 +44,9 @@ export default function Navbar() {
           Currículum
         </a>
 
-        {/* Mobile hamburger */}
         <button
           className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-          onClick={() => setMenuOpen(prev => !prev)}
+          onClick={() => setMenuOpen((prev) => !prev)}
           aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
         >
@@ -61,10 +56,9 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile drawer */}
       <div className={`navbar__drawer ${menuOpen ? 'navbar__drawer--open' : ''}`}>
         <ul className="navbar__drawer-links">
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}

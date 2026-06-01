@@ -13,6 +13,14 @@ export default function App() {
           </Layout>
         }
       />
+      <Route
+        path="/proyectos"
+        element={
+          <Layout>
+            <Home />
+          </Layout>
+        }
+      />
     </Routes>
   )
 }
