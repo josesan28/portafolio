@@ -1,3 +1,4 @@
+import TechCard from '../../../components/Stack/TechCard'
 import './Stack.css'
 
 const technologies = [
@@ -6,14 +7,14 @@ const technologies = [
     name: 'React',
     icon: '/tech/react.svg',
     reason:
-      'Construyo interfaces reutilizables, organizo el estado de forma clara y mantengo una experiencia fluida en aplicaciones interactivas.',
+      'Puedo construir interfaces reutilizables, organizo el estado de forma clara y mantengo una experiencia fluida en aplicaciones interactivas.',
   },
   {
     category: 'Lenguaje',
     name: 'JavaScript',
     icon: '/tech/javascript.svg',
     reason:
-      'La lógica del lado del cliente y la automatización de tareas pequeñas que ayudan en el desarrollo diario corren por su cuenta.',
+      'Es esencial para la lógica del lado del cliente, pero también me permite trabajar en el backend con Node.js, lo que me da flexibilidad para construir aplicaciones completas.',
   },
   {
     category: 'Runtime',
@@ -27,7 +28,7 @@ const technologies = [
     name: 'Express.js',
     icon: '/tech/express.svg',
     reason:
-      'Me permite crear APIs, definir rutas y manejar middleware de forma simple y ordenada.',
+      'Me permite crear APIs, definir rutas y manejar middlewares de forma simple y ordenada.',
   },
   {
     category: 'Infraestructura',
@@ -55,7 +56,7 @@ const technologies = [
     name: 'CSS',
     icon: '/tech/css.svg',
     reason:
-      'Maqueto interfaces, defino la identidad visual y adapto el diseño a distintos tamaños de pantalla.',
+      'Decoro interfaces, defino la identidad visual y adapto el diseño a distintos tamaños de pantalla.',
   },
   {
     category: 'Base de datos',
@@ -69,37 +70,37 @@ const technologies = [
     name: 'MySQL',
     icon: '/tech/mysql.svg',
     reason:
-      'En proyectos relacionales donde conviene una solución conocida, estable y fácil de administrar, recurro a MySQL.',
+      'En proyectos relacionales donde conviene una solución conocida, estable y fácil de administrar, utilizo MySQL.',
   },
   {
     category: 'Base de datos',
     name: 'SQLite',
     icon: '/tech/sqlite.svg',
     reason:
-      'Para prototipos, pruebas locales y aplicaciones ligeras que necesitan almacenamiento embebido, SQLite es ideal.',
+      'Para prototipos, pruebas locales y aplicaciones ligeras que necesitan almacenamiento embebido, SQLite lo considero ideal.',
   },
   {
     category: 'Lenguaje',
     name: 'Python',
     icon: '/tech/python.svg',
     reason:
-      'Scripts, automatización y tareas de procesamiento donde importa más la rapidez de desarrollo que la complejidad del entorno.',
+      'Scripts y simulaciones donde importa más la rapidez de desarrollo que la complejidad del entorno.',
   },
   {
     category: 'Lenguaje',
     name: 'Java',
     icon: '/tech/java.svg',
     reason:
-      'Practico programación orientada a objetos y trabajo en proyectos donde el tipado y la estructura son importantes.',
+      'Practico programación orientada a objetos y puedo trabajar en proyectos donde el tipado y la estructura son importantes.',
   },
   {
     category: 'Lenguaje',
     name: 'Kotlin',
     icon: '/tech/kotlin.svg',
     reason:
-      'Aprendo desarrollo moderno con sintaxis concisa y segura, especialmente en entornos JVM o Android.',
+      'Aprendo desarrollo moderno con sintaxis concisa y segura, especialmente para Android.',
   },
-];
+]
 
 export default function Stack() {
   return (
@@ -114,21 +115,7 @@ export default function Stack() {
 
       <div className="stack__grid">
         {technologies.map((tech) => (
-          <article key={tech.name} className="stack__card">
-            <div className="stack__card-top">
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                className="stack__icon"
-                loading="lazy"
-              />
-              <span className="stack__category">{tech.category}</span>
-            </div>
-
-            <h3 className="stack__name">{tech.name}</h3>
-
-            <p className="stack__reason">{tech.reason}</p>
-          </article>
+          <TechCard key={tech.name} tech={tech} />
         ))}
       </div>
     </section>

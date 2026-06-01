@@ -1,4 +1,40 @@
+import AboutActions from '../../../components/About/AboutActions'
+import AboutPhoto from '../../../components/About/AboutPhoto'
+import AboutSkills from '../../../components/About/AboutSkills'
+import AboutTimelineItem from '../../../components/About/AboutTimelineItem'
 import './About.css'
+
+const skills = [
+  'React',
+  'JavaScript',
+  'Node.js',
+  'Express.js',
+  'Docker',
+  'Git',
+  'HTML',
+  'CSS',
+  'PostgreSQL',
+  'MySQL',
+  'SQLite',
+  'Python',
+  'Java',
+  'Kotlin',
+]
+
+const actions = [
+  {
+    href: 'mailto:san24092@uvg.edu.gt',
+    label: 'Contáctame',
+    variant: 'about__btn--primary',
+  },
+  {
+    href: 'https://github.com/josesan28',
+    label: 'GitHub',
+    variant: 'about__btn--secondary',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  },
+]
 
 export default function About() {
   return (
@@ -7,12 +43,8 @@ export default function About() {
         <div className="about__content">
           <span className="about__eyebrow">Sobre mí</span>
 
-          <h1 className="about__name">
-            José Sanchez
-          </h1>
-          <p className="about__role">
-            Desarrollador Full-Stack Junior - Estudiante
-          </p>
+          <h1 className="about__name">José Sanchez</h1>
+          <p className="about__role">Desarrollador Full-Stack Junior - Estudiante</p>
 
           <p className="about__bio">
             Actualmente soy estudiante de Ingeniería en Ciencias de la Computación.
@@ -22,87 +54,25 @@ export default function About() {
           <div className="about__story">
             <h2 className="about__story-title">Mi experiencia</h2>
             <div className="about__timeline">
-              <div className="about__timeline-item">
-                <span className="about__timeline-date">
-                  2024 - 2026
-                </span>
-                <div className="about__timeline-body">
-                  <strong>
-                    Universidad del Valle de Guatemala
-                  </strong>
-                  <p>
-                    Aquí escribo lo que he aprendido en esta etapa.
-                  </p>
-                </div>
-              </div>
-
-              <div className="about__timeline-item">
-                <span className="about__timeline-date">
-                  2026
-                </span>
-                <div className="about__timeline-body">
-                  <strong>
-                    Proyecto destacado
-                  </strong>
-                  <p>
-                    Voy a describir el proyecto de Software.
-                  </p>
-                </div>
-              </div>
+              <AboutTimelineItem
+                date="2024 - 2026"
+                title="Universidad del Valle de Guatemala"
+                description="Aquí escribo lo que he aprendido en esta etapa."
+              />
+              <AboutTimelineItem
+                date="2026"
+                title="Proyecto destacado"
+                description="Voy a describir el proyecto de Software."
+                current
+              />
             </div>
           </div>
 
-          <div className="about__skills">
-            {[
-              'React', 'JavaScript', 'Node.js', 'Express.js',
-              'Docker', 'Git',
-              'HTML', 'CSS', 'PostgreSQL', 'MySQL', 'SQLite',
-              'Python', 'Java', 'Kotlin',
-            ].map(skill => (
-              <span key={skill} className="about__badge">
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          <div className="about__actions">
-            <a
-              href="mailto:san24092@uvg.edu.gt"
-              className="about__btn about__btn--primary"
-            >
-              Contáctame
-            </a>
-            <a
-              href="https://github.com/josesan28"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="about__btn about__btn--secondary"
-            >
-              GitHub
-            </a>
-          </div>
+          <AboutSkills skills={skills} />
+          <AboutActions links={actions} />
         </div>
 
-        <div className="about__photo-wrapper">
-          <div className="about__photo-frame">
-            {/*
-              Aquí reemplazo la foto por la mía.
-            */}
-            <img
-              src="/foto-perfil.jpg"
-              alt="Mi foto"
-              className="about__photo"
-              onError={(e) => {
-                e.target.style.display = 'none'
-                e.target.nextSibling.style.display = 'flex'
-              }}
-            />
-            <div className="about__photo-placeholder" style={{ display: 'none' }}>
-              <span>Mi foto aquí</span>
-            </div>
-          </div>
-          <div className="about__photo-decoration" aria-hidden="true" />
-        </div>
+        <AboutPhoto />
       </div>
     </section>
   )
