@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
 export default function Navbar() {
+  const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeHash, setActiveHash] = useState(window.location.hash || '#about')
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -12,11 +14,25 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const syncActiveHash = () => setActiveHash(window.location.hash || '#about')
+    window.addEventListener('hashchange', syncActiveHash)
+    window.addEventListener('sectionhashchange', syncActiveHash)
+    return () => {
+      window.removeEventListener('hashchange', syncActiveHash)
+      window.removeEventListener('sectionhashchange', syncActiveHash)
+    }
+  }, [])
+
   const navLinks = [
-    { to: '/#about', label: 'Sobre mí' },
-    { to: '/#stack', label: 'Tecnologías' },
-    { to: '/#projects', label: 'Proyectos' },
+    { to: '/#about', hash: '#about', label: 'Sobre mi' },
+    { to: '/#stack', hash: '#stack', label: 'Tecnologias' },
+    { to: '/#projects', hash: '#projects', label: 'Proyectos' },
+    { to: '/#contact', hash: '#contact', label: 'Contacto' },
   ]
+
+  const isHomeRoute = location.pathname === '/' || location.pathname === '/proyectos'
+  const currentHash = location.hash || activeHash || '#about'
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
@@ -28,7 +44,10 @@ export default function Navbar() {
         <ul className="navbar__links">
           {navLinks.map((link) => (
             <li key={link.to}>
-              <Link to={link.to} className="navbar__link">
+              <Link
+                to={link.to}
+                className={`navbar__link ${isHomeRoute && currentHash === link.hash ? 'navbar__link--active' : ''}`}
+              >
                 {link.label}
               </Link>
             </li>
@@ -63,7 +82,7 @@ export default function Navbar() {
             <li key={link.to}>
               <Link
                 to={link.to}
-                className="navbar__drawer-link"
+                className={`navbar__drawer-link ${isHomeRoute && currentHash === link.hash ? 'navbar__drawer-link--active' : ''}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

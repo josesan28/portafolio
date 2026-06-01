@@ -87,7 +87,7 @@ export default function ProjectDetail() {
       <div className="project-detail__grid">
         <main className="project-detail__main">
           <section className="project-detail__section">
-            <h2 className="project-detail__section-title">Vision general</h2>
+            <h2 className="project-detail__section-title">Visión general</h2>
             <div className="project-detail__prose">
               {project.overview.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -96,7 +96,7 @@ export default function ProjectDetail() {
           </section>
 
           <section className="project-detail__section">
-            <h2 className="project-detail__section-title">Caracteristicas clave</h2>
+            <h2 className="project-detail__section-title">Características clave</h2>
             <div className="project-detail__feature-grid">
               {project.features.map((feature) => (
                 <ProjectFeatureCard key={feature.title} feature={feature} />
@@ -107,7 +107,7 @@ export default function ProjectDetail() {
 
         <aside className="project-detail__aside">
           <section className="project-detail__section">
-            <h2 className="project-detail__section-title">Stack tecnico y decisiones</h2>
+            <h2 className="project-detail__section-title">Stack técnico y decisiones</h2>
             <div className="project-detail__tech-list">
               {project.stack.map((tech) => (
                 <ProjectTechItem key={tech.name} tech={tech} />

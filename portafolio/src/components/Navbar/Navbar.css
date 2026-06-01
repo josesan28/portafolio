@@ -60,6 +60,11 @@
   transform: translateY(-1px);
 }
 
+.navbar__link--active {
+  color: var(--color-accent-green-strong);
+  background-color: var(--color-accent-green-soft);
+}
+
 /* CTA button */
 .navbar__cta {
   font-family: var(--font-mono);
@@ -156,6 +161,11 @@
 .navbar__drawer-link:hover {
   color: var(--color-accent-strong);
   background-color: var(--color-accent-soft);
+}
+
+.navbar__drawer-link--active {
+  color: var(--color-accent-green-strong);
+  background-color: var(--color-accent-green-soft);
 }
 
 .navbar__drawer-link--cta {
