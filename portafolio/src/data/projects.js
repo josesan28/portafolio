@@ -115,19 +115,19 @@ export const projects = [
         name: 'MySQL',
         icon: '/tech/mysql.svg',
         reason:
-          'Fue una elección natural porque el foco del proyecto estaba precisamente en trabajar seguridad, privilegios, procedimientos almacenados y transacciones dentro del DBMS. Más que solo guardar datos, la base participa activamente en la lógica del sistema.',
+          'Fue una elección natural porque el foco del proyecto estaba precisamente en trabajar seguridad, privilegios, procedimientos almacenados y transacciones dentro del DBMS, y MYSQL permite implementar estas funcionalidades de manera eficiente. Más que solo guardar datos, la base participa activamente en la lógica del sistema.',
       },
       {
         name: 'Sequelize',
         icon: '/tech/sequelize.svg',
         reason:
-          'Lo usé como ORM para los módulos CRUD donde convenía avanzar con una capa de acceso más mantenible. Me permitió reservar SQL directo para los casos donde sí hacía falta un control más fino, en lugar de forzar el mismo enfoque para todo.',
+          'Lo usé como ORM para los CRUD donde convenía trabajar con una capa de acceso más mantenible. Me permitió dejar SQL directo para los casos donde sí hacía falta un control más detallado, en lugar de forzar el mismo enfoque para todo.',
       },
       {
         name: 'Docker',
         icon: '/tech/docker.svg',
         reason:
-          'Lo usé para levantar frontend, backend, base de datos y hasta perfiles separados para lint y tests. Eso hizo que el proyecto fuera más fácil de ejecutar y de revisar sin depender demasiado del entorno local.',
+          'Lo usé para levantar frontend, backend, base de datos, e incluso perfiles separados para lint y tests. Eso hizo que el proyecto fuera más fácil de ejecutar y de revisar sin depender demasiado del entorno local.',
       },
     ],
     tags: ['React', 'Node.js', 'MySQL', 'Sequelize', 'Docker'],
@@ -146,7 +146,7 @@ export const projects = [
       'Aplicación para registrar, consultar y calificar series, dividida en un cliente web en JavaScript vanilla y una API REST en Go conectada a PostgreSQL.',
     highlights: [
       'El sistema está dividido en dos repositorios claros: cliente web por un lado y backend API por otro.',
-      'La interfaz resuelve búsqueda, ordenamiento, paginación, ratings, preview de imágenes y exportación CSV sin usar frameworks.',
+      'La interfaz incluye búsqueda, ordenamiento, paginación, ratings, preview de imágenes y exportación CSV sin usar frameworks.',
       'El backend expone endpoints con validación, filtros, subida de imágenes y respuestas HTTP consistentes.',
     ],
     overview: [
@@ -157,12 +157,12 @@ export const projects = [
       {
         title: 'Cliente modular sin framework',
         description:
-          'El frontend quedó separado en archivos como `api.js`, `series.js`, `modals.js` y `app.js`, cada uno con una responsabilidad concreta. Esa organización ayudó a que una aplicación escrita en JavaScript vanilla siguiera siendo legible y relativamente fácil de mantener.',
+          'El frontend quedó separado en diferentes archivos con responsabilidades específicas. Esa organización ayudó a que una aplicación escrita en JavaScript vanilla siguiera siendo legible y relativamente fácil de mantener.',
       },
       {
         title: 'Interfaz dinámica',
         description:
-          'Búsqueda con debounce, ordenamiento, paginación, modales de alta y edición, preview de imágenes y detalle de series se resolvieron sin reactividad automática. Eso obligó a trabajar con más cuidado la sincronización entre eventos, estado y renderizado.',
+          'Búsqueda con debounce, ordenamiento, paginación, preview de imágenes y detalle de series se resolvieron sin reactividad automática. Eso obligó a trabajar con más cuidado la sincronización entre eventos, estado y renderizado.',
       },
       {
         title: 'API REST en Go',
@@ -172,7 +172,7 @@ export const projects = [
       {
         title: 'Consultas útiles desde el servidor',
         description:
-          'La API implementa paginación, búsqueda por nombre y ordenamiento por distintos campos usando query params. Eso evitó cargar al cliente con filtrados innecesarios y dejó la lógica de acceso a datos en el lugar más natural.',
+          'La API implementa paginación, búsqueda por nombre y ordenamiento por distintos campos usando query params. Eso evitó cargar al cliente con filtrados innecesarios y dejó la lógica de acceso a datos en el lugar correspondiente.',
       },
       {
         title: 'Ratings e imágenes con lógica completa',
@@ -197,13 +197,13 @@ export const projects = [
         name: 'JavaScript',
         icon: '/tech/javascript.svg',
         reason:
-          'Fue la base para manejar fetch, eventos, estado de la vista y renderizado dinámico del DOM. Elegir JavaScript vanilla hizo el proyecto más exigente, pero también más útil para entender fundamentos reales del navegador.',
+          'Fue la base para manejar fetch, eventos, estado de la vista y renderizado dinámico del DOM. Usar JavaScript vanilla hizo el proyecto más exigente, pero también más útil para entender fundamentos reales del navegador.',
       },
       {
         name: 'Go',
         icon: '/tech/go.svg',
         reason:
-          'Lo usé para construir la API REST sin depender de un framework grande, trabajando directamente con `net/http`, handlers y lógica de validación. Eso me sirvió para comprender mejor el ciclo completo de una petición en backend.',
+          'Lo usé para construir la API REST sin depender de un framework grande, trabajando directamente con net/http, handlers y lógica de validación. Eso me sirvió para comprender mejor el ciclo completo de una petición en backend.',
       },
       {
         name: 'PostgreSQL',
@@ -212,18 +212,18 @@ export const projects = [
           'Lo usé para persistir series, géneros y ratings con una estructura relacional simple pero suficiente para soportar búsquedas, ordenamiento y asociaciones entre entidades.',
       },
     ],
-    tags: ['HTML', 'CSS', 'JavaScript', 'Go', 'PostgreSQL', 'REST API'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'Go', 'PostgreSQL'],
     links: {
       demo: 'https://josesan28.github.io/proyecto-1-cliente-web',
       repositories: [
         {
           key: 'repo-cliente',
-          label: 'Repo cliente',
+          label: 'Repo-cliente',
           href: 'https://github.com/josesan28/proyecto-1-cliente-web',
         },
         {
           key: 'repo-backend',
-          label: 'Repo backend',
+          label: 'Repo-backend',
           href: 'https://github.com/josesan28/proyecto-1-backend-web',
         },
       ],
@@ -234,33 +234,33 @@ export const projects = [
     id: 'proyecto-4',
     title: 'Calculadora Brasileña',
     year: '2026',
-    type: 'Front-End / Componente interactivo',
+    type: 'Front-End',
     description:
       'Proyecto construido con React que resuelve operaciones básicas, decimales, cambio de signo y manejo de errores, con una interfaz inspirada en la paleta de colores de Brasil.',
     highlights: [
-      'La lógica principal vive en un hook personalizado, separado de la interfaz y fácil de probar.',
-      'El proyecto incluye pruebas automatizadas, historias de Storybook y reglas de lint definidas a propósito.',
+      'La lógica principal está en un hook personalizado, separado de la interfaz y fácil de probar.',
+      'El proyecto incluye pruebas automatizadas, historias de Storybook y reglas de lint definidas.',
       'Aunque es una app pequeña, está organizada como un componente reutilizable y no como una sola vista monolítica.',
     ],
     overview: [
-      'Este proyecto parte de una calculadora aparentemente simple, pero se trabajó con bastante intención en la forma de estructurarlo. En lugar de dejar toda la lógica mezclada con la interfaz, la aplicación se dividió en componentes pequeños y un hook central que controla el comportamiento de la calculadora. Eso hizo que incluso un ejercicio corto sirviera para practicar separación de responsabilidades y diseño de componentes en React.',
-      'Además de las operaciones básicas, el proyecto toma en cuenta casos que suelen pasarse por alto en implementaciones rápidas: límite visible de caracteres, decimales, cambio de signo, módulo y estados de error cuando el resultado es inválido o se sale de rango. También me interesó tratarlo como una pieza de UI bien cuidada, con CSS Modules para encapsular estilos, Storybook para documentar componentes y pruebas automatizadas para asegurar que la lógica del hook y la interfaz se comporten como se espera.',
+      'Este proyecto parte de una calculadora aparentemente simple, pero se trabajó pensando bastante en la forma de estructurarlo. En lugar de dejar toda la lógica mezclada con la interfaz, la aplicación se dividió en componentes pequeños y un hook central que controla el comportamiento de la calculadora. Eso hizo que incluso un ejercicio corto sirviera para practicar separación de responsabilidades y diseño de componentes en React.',
+      'Además de las operaciones básicas, el proyecto toma en cuenta casos que suelen pasarse por alto en implementaciones rápidas: límite visible de caracteres, decimales, cambio de signo, módulo y estados de error cuando el resultado es inválido o se sale de rango. También me interesó intentar un diseño bonito y divertido, con CSS Modules para encapsular estilos, Storybook para documentar componentes y pruebas automatizadas para asegurar que la lógica del hook y la interfaz se comporten como se espera.',
     ],
     features: [
       {
         title: 'Lógica concentrada en un hook',
         description:
-          'El hook `useCalculator` encapsula estado, operaciones, validaciones y formateo del resultado. Esa decisión dejó a los componentes enfocados en renderizar y delegar eventos, lo que vuelve el comportamiento más fácil de leer y mantener.',
+          'El hook useCalculator encapsula estado, operaciones, validaciones y formateo del resultado. Esa decisión dejó a los componentes enfocados en renderizar y delegar eventos, lo que vuelve el comportamiento más fácil de leer y mantener.',
       },
       {
         title: 'Manejo explícito de casos límite',
         description:
-          'La calculadora no solo resuelve sumas o divisiones; también controla decimales, alternancia de signo, límite de 9 caracteres y errores cuando el resultado es negativo, infinito o mayor al máximo permitido. Eso le da más solidez que una implementación puramente visual.',
+          'La calculadora no solo resuelve sumas o divisiones, también controla decimales, cambio de signo, límite de 9 caracteres y errores cuando el resultado es negativo, infinito o mayor al máximo permitido. Eso le da más solidez que una implementación simplemente visual.',
       },
       {
         title: 'Componentes pequeños y acoplados',
         description:
-          'Display, botones, teclado y contenedor principal están separados en piezas cortas con responsabilidades puntuales. Para una interfaz tan compacta, esa organización ayuda bastante a que el proyecto siga claro incluso al agregar estilos, pruebas o nuevas reglas.',
+          'Display, botones, teclado y contenedor principal están separados en partes cortas con responsabilidades puntuales. Para una interfaz tan compacta, esa organización ayuda bastante a que el proyecto siga claro incluso al agregar estilos, pruebas o nuevas reglas.',
       },
       {
         title: 'Pruebas y documentación visual',
@@ -270,7 +270,7 @@ export const projects = [
       {
         title: 'Reglas definidas',
         description:
-          'ESLint no está solo por cumplir: tiene reglas concretas como prohibir punto y coma y limitar longitud de línea. Ese tipo de decisiones pequeñas ayudan a mantener consistencia cuando el proyecto crece o se trabaja con más personas.',
+          'ESLint no está solo por cumplir, tiene reglas concretas como prohibir punto y coma y limitar longitud de línea. Ese tipo de decisiones pequeñas ayudan a mantener consistencia cuando el proyecto crece o se trabaja con más personas.',
       },
     ],
     stack: [
@@ -290,19 +290,19 @@ export const projects = [
         name: 'CSS Modules',
         icon: '/tech/css.svg',
         reason:
-          'Los usé para aislar estilos por componente y mantener una interfaz consistente sin riesgo de colisiones globales. Para componentes pequeños y reutilizables, ese enfoque se siente bastante natural.',
+          'Los usé para aislar estilos por componente y mantener una interfaz consistente sin riesgo de problemas globales.',
       },
       {
         name: 'Vitest',
         icon: '/tech/vite.svg',
         reason:
-          'Lo usé junto con Testing Library para validar tanto la lógica del hook como el comportamiento visible del componente. Eso le dio una base de confianza útil incluso siendo una app pequeña.',
+          'Lo usé junto con Testing Library para validar tanto la lógica del hook como el comportamiento visible del componente. Eso le añade bastante valor incluso siendo una app pequeña.',
       },
       {
         name: 'Storybook',
         icon: '/tech/github.svg',
         reason:
-          'Lo incorporé para documentar y revisar componentes en aislamiento, algo que ayuda mucho cuando se quiere tratar la interfaz como un sistema y no solo como una entrega puntual.',
+          'Lo incorporé para documentar y revisar componentes, algo que ayuda mucho cuando se quiere tratar la interfaz como un sistema.',
       },
     ],
     tags: ['React', 'JavaScript', 'CSS Modules', 'Vitest', 'Storybook'],
@@ -318,7 +318,7 @@ export const projects = [
     year: '2026',
     type: 'Front-End / Juego interactivo',
     description:
-      'Juego de Snake construido con React, con control por teclado, aumento progresivo de dificultad, sistema de puntaje y una interfaz enfocada en animación y feedback visual.',
+      'Juego construido con React, con control por teclado, aumento progresivo de dificultad, sistema de puntaje y una interfaz enfocada en animación y feedback visual.',
     highlights: [
       'La lógica del juego vive en un hook separado que controla movimiento, colisiones, comida, puntaje y reinicio.',
       'La dificultad aumenta con niveles y cambios de velocidad, lo que hace que el juego tenga progresión real.',
@@ -326,33 +326,33 @@ export const projects = [
     ],
     overview: [
       'Este proyecto toma una idea clásica y la convierte en una práctica bastante completa de estado, tiempo y renderizado en React. Más allá de mover una serpiente por una cuadrícula, el juego resuelve inicio de partida, crecimiento, detección de colisiones, control por teclado, puntaje, récord y reinicio. Eso lo vuelve un ejercicio muy útil para trabajar flujos interactivos donde varias piezas de estado cambian constantemente.',
-      'En la implementación, la lógica principal quedó encapsulada en `useSnakeGame`, mientras la vista se reparte entre componentes como `Game`, `Board`, `Snake`, `Food` y `Score`. Esa separación hace que el comportamiento central no dependa directamente del markup y permite pensar el proyecto como un pequeño sistema de juego y no solo como una pantalla única. También suma bastante el manejo de niveles con velocidad progresiva y el cuidado visual de la serpiente, que le da más personalidad al resultado final.',
+      'En la implementación, la lógica principal quedó encapsulada en useSnakeGame, mientras la vista se reparte entre componentes como Game, Board, Snake, Food y Score. Esa separación hace que el comportamiento central no dependa directamente de la vista y permite pensar el proyecto como un pequeño sistema de juego y no solo como una pantalla única. También suma bastante el manejo de niveles con velocidad progresiva y el cuidado visual de la serpiente, que le da más personalidad al resultado final.',
     ],
     features: [
       {
         title: 'Loop de juego controlado desde un hook',
         description:
-          'El hook `useSnakeGame` concentra movimiento, dirección, comida, colisiones, niveles y estado general de la partida. Eso evita dispersar la lógica entre componentes visuales y deja más claro qué parte del código gobierna realmente el juego.',
+          'El hook useSnakeGame mneja movimiento, dirección, comida, colisiones, niveles y estado general de la partida. Eso evita dispersar la lógica entre componentes visuales y deja más claro qué parte del código gobierna controla el juego.',
       },
       {
         title: 'Progresión con niveles y velocidad',
         description:
-          'La dificultad no es fija: el juego ajusta la velocidad según el puntaje y define niveles con umbrales concretos. Esa decisión hace que la experiencia no se sienta plana y obliga a que la lógica del tiempo esté bien coordinada con el estado.',
+          'La dificultad no es fija, el juego ajusta la velocidad según el puntaje y define niveles. Esa decisión hace que la experiencia no se sienta plana y obliga a que la lógica del tiempo esté bien coordinada con el estado.',
       },
       {
         title: 'Controles y reglas bien delimitados',
         description:
-          'El movimiento se resuelve con flechas o `W A S D`, bloqueando giros imposibles hacia la dirección opuesta para evitar errores de control. También se manejan con claridad las colisiones contra paredes y contra el propio cuerpo.',
+          'El movimiento se hace con flechas o W A S D, bloqueando giros imposibles hacia la dirección opuesta para evitar errores de control. También se manejan con claridad las colisiones contra paredes y contra el propio cuerpo.',
       },
       {
         title: 'Feedback visual durante toda la partida',
         description:
-          'La interfaz muestra overlays de inicio y game over, puntaje, récord, nivel actual y mensajes de reinicio. Eso ayuda a que el jugador entienda el estado del juego en todo momento sin depender de texto excesivo o explicaciones externas.',
+          'La interfaz muestra mensajes de inicio y game over, puntaje, récord, nivel actual y mensajes de reinicio. Eso ayuda a que el jugador entienda el estado del juego en todo momento sin depender de texto excesivo o explicaciones externas.',
       },
       {
         title: 'Animación suave de la serpiente',
         description:
-          'La serpiente no se dibuja solo como bloques estáticos: se calcula dirección de cabeza y cola, y se ajusta la duración del movimiento en función de la velocidad actual. Ese detalle hace que el juego se sienta más vivo y menos rígido.',
+          'La serpiente no se dibuja solo como bloques estáticos, se calcula dirección de cabeza y cola, y se ajusta la duración del movimiento en función de la velocidad actual. Ese detalle hace que el juego se sienta más vivo y menos rígido.',
       },
     ],
     stack: [
@@ -372,7 +372,7 @@ export const projects = [
         name: 'CSS',
         icon: '/tech/css.svg',
         reason:
-          'Lo usé para construir el tablero, los overlays, el estilo de la serpiente y las transiciones de movimiento. Gran parte de la sensación del juego depende de cómo responde visualmente cada cambio de estado.',
+          'Lo usé para construir el tablero, los elementos visuales, el estilo de la serpiente y las transiciones de movimiento. Gran parte de la sensación del juego depende de cómo responde visualmente cada cambio de estado.',
       },
       {
         name: 'Vite',
@@ -384,7 +384,7 @@ export const projects = [
         name: 'ESLint',
         icon: '/tech/javascript.svg',
         reason:
-          'Ayudó a mantener una base consistente mientras la lógica del juego crecía. Aunque el proyecto es compacto, tener reglas claras evita errores tontos en hooks, efectos y eventos.',
+          'Ayudó a mantener una base consistente mientras la lógica del juego crecía. Aunque el proyecto es compacto, tener reglas claras evita errores pequeños en hooks, efectos y eventos.',
       },
     ],
     tags: ['React', 'JavaScript', 'CSS', 'Vite', 'ESLint'],

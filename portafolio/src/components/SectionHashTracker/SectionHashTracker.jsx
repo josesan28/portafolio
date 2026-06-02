@@ -1,5 +1,9 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { getSectionNavigation } from '../../utils/sectionNavigation'
+
+const NAVBAR_OFFSET = 108
+const HASH_SYNC_THRESHOLD = 8
 
 export default function SectionHashTracker({ sectionIds }) {
   const location = useLocation()
@@ -29,30 +33,43 @@ export default function SectionHashTracker({ sectionIds }) {
     }
 
     const updateHash = () => {
-      const hashOffset = Math.max(120, Math.floor(window.innerHeight * 0.35))
-      const candidates = sections
-        .map((section) => {
-          const rect = section.getBoundingClientRect()
+      const activeNavigation = getSectionNavigation()
 
-          return {
-            id: section.id,
-            top: rect.top,
-            bottom: rect.bottom,
-          }
-        })
-        .filter(({ bottom }) => bottom > hashOffset)
+      if (activeNavigation) {
+        const distanceToTarget = Math.abs(window.scrollY - activeNavigation.targetTop)
 
-      if (!candidates.length) {
+        if (distanceToTarget > HASH_SYNC_THRESHOLD) {
+          return
+        }
+      }
+
+      const activationLine = NAVBAR_OFFSET + 32
+      const sectionRects = sections.map((section) => {
+        const rect = section.getBoundingClientRect()
+
+        return {
+          id: section.id,
+          top: rect.top,
+          bottom: rect.bottom,
+          distance: Math.abs(rect.top - activationLine),
+        }
+      })
+
+      const intersectingSection = sectionRects.find(
+        ({ top, bottom }) => top <= activationLine && bottom > activationLine,
+      )
+
+      const nearestSection =
+        intersectingSection ||
+        sectionRects
+          .filter(({ bottom }) => bottom > 0)
+          .sort((a, b) => a.distance - b.distance)[0]
+
+      if (!nearestSection) {
         return
       }
 
-      const activeSection =
-        candidates
-          .filter(({ top }) => top <= hashOffset)
-          .sort((a, b) => b.top - a.top)[0] ||
-        candidates.sort((a, b) => a.top - b.top)[0]
-
-      setHash(activeSection.id)
+      setHash(nearestSection.id)
     }
 
     let frameId = null

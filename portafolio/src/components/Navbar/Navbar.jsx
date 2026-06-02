@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTheme } from '../../context/ThemeContext'
+import { scrollToSectionId } from '../../utils/sectionNavigation'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -17,7 +18,7 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
-    setActiveHash(location.hash || '#about')
+    setActiveHash(window.location.hash || '#about')
   }, [location.hash, location.pathname])
 
   useEffect(() => {
@@ -41,10 +42,25 @@ export default function Navbar() {
   const currentHash = isHomeRoute ? activeHash : location.hash
   const isDarkTheme = theme === 'dark'
 
+  const handleSectionLinkClick = (event, hash) => {
+    if (!isHomeRoute) {
+      setMenuOpen(false)
+      return
+    }
+
+    event.preventDefault()
+    setMenuOpen(false)
+    scrollToSectionId(hash.replace('#', ''), { updateHistory: true, historyMode: 'push' })
+  }
+
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <nav className="navbar__inner" aria-label="Navegación principal">
-        <Link to="/#about" className="navbar__brand">
+        <Link
+          to="/#about"
+          className="navbar__brand"
+          onClick={(event) => handleSectionLinkClick(event, '#about')}
+        >
           José Sanchez
         </Link>
 
@@ -54,6 +70,7 @@ export default function Navbar() {
               <Link
                 to={link.to}
                 className={`navbar__link ${isHomeRoute && currentHash === link.hash ? 'navbar__link--active' : ''}`}
+                onClick={(event) => handleSectionLinkClick(event, link.hash)}
               >
                 {link.label}
               </Link>
@@ -107,7 +124,7 @@ export default function Navbar() {
               <Link
                 to={link.to}
                 className={`navbar__drawer-link ${isHomeRoute && currentHash === link.hash ? 'navbar__drawer-link--active' : ''}`}
-                onClick={() => setMenuOpen(false)}
+                onClick={(event) => handleSectionLinkClick(event, link.hash)}
               >
                 {link.label}
               </Link>
