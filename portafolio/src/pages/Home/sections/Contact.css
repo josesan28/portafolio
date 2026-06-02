@@ -137,6 +137,7 @@
 }
 
 .contact__form-shell {
+  position: relative;
   padding: var(--space-lg);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -148,6 +149,10 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+}
+
+.contact__botcheck {
+  display: none;
 }
 
 .contact__form-grid {
@@ -211,6 +216,12 @@
   padding-top: var(--space-sm);
 }
 
+.contact__form-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
 .contact__note {
   max-width: 40ch;
   font-family: var(--font-sans);
@@ -219,10 +230,119 @@
   color: var(--color-text-muted);
 }
 
+.contact__feedback-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  border-radius: inherit;
+  background-color: var(--color-surface-overlay-soft);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+  animation: contact-feedback-overlay-in 0.18s ease;
+}
+
+.contact__feedback-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: min(100%, 340px);
+  padding: 1rem 1.05rem;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius-md) + 2px);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-3xl);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text);
+  animation: contact-feedback-modal-in 0.24s ease;
+}
+
+.contact__feedback-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background-color: var(--color-surface-overlay);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.contact__feedback-text {
+  margin: 0;
+}
+
+.contact__feedback-modal--success {
+  border-color: var(--color-accent-green-border-medium);
+  background:
+    linear-gradient(180deg, var(--color-accent-green-soft), transparent 140%),
+    var(--color-surface);
+}
+
+.contact__feedback-modal--success .contact__feedback-badge {
+  background-color: var(--color-accent-green-fill-strong);
+  color: var(--color-accent-green-strong);
+}
+
+.contact__feedback-modal--error {
+  border-color: rgba(184, 95, 79, 0.28);
+  background:
+    linear-gradient(180deg, rgba(184, 95, 79, 0.12), transparent 140%),
+    var(--color-surface);
+}
+
+.contact__feedback-modal--error .contact__feedback-badge {
+  background-color: rgba(184, 95, 79, 0.16);
+  color: #9f4d3f;
+}
+
+:root[data-theme='dark'] .contact__feedback-overlay {
+  background-color: rgba(8, 12, 11, 0.22);
+}
+
+:root[data-theme='dark'] .contact__feedback-modal--error {
+  border-color: rgba(242, 162, 144, 0.26);
+}
+
+:root[data-theme='dark'] .contact__feedback-modal--error .contact__feedback-badge {
+  background-color: rgba(242, 162, 144, 0.16);
+  color: #f2b3a4;
+}
+
+@keyframes contact-feedback-overlay-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contact-feedback-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .contact__submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 170px;
   padding: var(--space-md) var(--space-xl);
   border: none;
   border-radius: var(--radius-sm);
@@ -243,6 +363,11 @@
 
 .contact__submit:active {
   transform: scale(0.98);
+}
+
+.contact__submit:disabled {
+  opacity: 0.72;
+  cursor: wait;
 }
 
 @media (max-width: 900px) {
