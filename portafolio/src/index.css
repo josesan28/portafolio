@@ -7,6 +7,8 @@
 
 /* Variables de diseño */
 :root {
+  color-scheme: light;
+
   /* Colores base */
   --color-bg: #f4f1eb;
   --color-bg-top: #faf7f0;
@@ -103,6 +105,79 @@
   --shadow-focus-ring: 0 0 0 4px rgba(92, 143, 140, 0.08);
 }
 
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-bg: #101513;
+  --color-bg-top: #161c19;
+  --color-bg-bottom: #0b0f0e;
+  --color-surface: #171d1b;
+  --color-surface-alt: #1f2825;
+  --color-border: #2d3734;
+  --color-text: #f4eee4;
+  --color-text-muted: #b8b1a4;
+  --color-text-muted-strong: rgba(184, 177, 164, 0.82);
+  --color-accent: #d9cec0;
+  --color-accent-strong: #f6eee3;
+  --color-accent-soft: rgba(246, 238, 227, 0.12);
+  --color-accent-green: #78ada8;
+  --color-accent-green-soft: rgba(120, 173, 168, 0.16);
+  --color-accent-green-strong: #a9d8d1;
+
+  --color-ink-softest: rgba(255, 255, 255, 0.04);
+  --color-ink-soft: rgba(255, 255, 255, 0.06);
+  --color-ink-muted: rgba(255, 255, 255, 0.08);
+  --color-ink-medium: rgba(255, 255, 255, 0.1);
+  --color-ink-strong: rgba(255, 255, 255, 0.14);
+  --color-ink-heavy: rgba(255, 255, 255, 0.18);
+  --color-selection: rgba(246, 238, 227, 0.2);
+
+  --color-surface-veil: rgba(16, 21, 19, 0.9);
+  --color-surface-veil-strong: rgba(16, 21, 19, 0.96);
+  --color-surface-frost: rgba(31, 40, 37, 0.88);
+  --color-surface-overlay-soft: rgba(255, 255, 255, 0.04);
+  --color-surface-overlay: rgba(255, 255, 255, 0.06);
+  --color-surface-overlay-line: rgba(255, 255, 255, 0.12);
+  --color-surface-sheen: rgba(255, 255, 255, 0.08);
+  --color-surface-elevated: rgba(31, 40, 37, 0.82);
+
+  --color-accent-green-line: rgba(120, 173, 168, 0.38);
+  --color-accent-green-line-strong: rgba(120, 173, 168, 0.52);
+  --color-accent-green-solid: rgba(120, 173, 168, 0.92);
+  --color-accent-green-border-soft: rgba(120, 173, 168, 0.24);
+  --color-accent-green-border: rgba(120, 173, 168, 0.3);
+  --color-accent-green-border-medium: rgba(120, 173, 168, 0.34);
+  --color-accent-green-border-strong: rgba(120, 173, 168, 0.38);
+  --color-accent-green-border-hover: rgba(120, 173, 168, 0.46);
+  --color-accent-green-border-emphasis: rgba(120, 173, 168, 0.48);
+  --color-accent-green-border-focus: rgba(120, 173, 168, 0.58);
+  --color-accent-green-fill-strong: rgba(120, 173, 168, 0.18);
+  --color-accent-green-glow-soft: rgba(120, 173, 168, 0.12);
+  --color-accent-green-glow: rgba(120, 173, 168, 0.18);
+  --color-accent-green-glow-strong: rgba(120, 173, 168, 0.24);
+  --color-accent-green-deep-glow: rgba(86, 125, 121, 0.18);
+  --color-accent-shadow-soft: rgba(246, 238, 227, 0.04);
+  --color-accent-warm-glow: rgba(196, 125, 58, 0.12);
+  --color-accent-warm-glow-soft: rgba(196, 125, 58, 0.08);
+  --color-accent-warm-outline: rgba(196, 125, 58, 0.16);
+
+  --shadow-xs: 0 8px 16px rgba(0, 0, 0, 0.24);
+  --shadow-sm: 0 8px 18px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 18px rgba(0, 0, 0, 0.26);
+  --shadow-md-hover: 0 10px 18px rgba(0, 0, 0, 0.3);
+  --shadow-md-strong: 0 10px 24px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.22);
+  --shadow-lg-strong: 0 12px 22px rgba(0, 0, 0, 0.28);
+  --shadow-xl: 0 14px 24px rgba(0, 0, 0, 0.32);
+  --shadow-2xl: 0 18px 34px rgba(0, 0, 0, 0.28);
+  --shadow-2xl-soft: 0 18px 34px rgba(0, 0, 0, 0.24);
+  --shadow-3xl: 0 20px 38px rgba(0, 0, 0, 0.3);
+  --shadow-4xl: 0 22px 40px rgba(0, 0, 0, 0.28);
+  --shadow-4xl-strong: 0 22px 44px rgba(0, 0, 0, 0.34);
+  --shadow-5xl: 0 28px 48px rgba(0, 0, 0, 0.38);
+  --shadow-focus-ring: 0 0 0 4px rgba(120, 173, 168, 0.16);
+}
+
 /* Base */
 html {
   scroll-behavior: smooth;
@@ -121,6 +196,7 @@ body {
   position: relative;
   isolation: isolate;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 body::before {
@@ -152,6 +228,19 @@ body::after {
   mix-blend-mode: multiply;
 }
 
+:root[data-theme='dark'] body::before,
+:root[data-theme='dark'] body::after {
+  mix-blend-mode: screen;
+}
+
+:root[data-theme='dark'] body::before {
+  opacity: 0.08;
+}
+
+:root[data-theme='dark'] body::after {
+  opacity: 0.1;
+}
+
 #root {
   min-height: 100vh;
   position: relative;
@@ -180,4 +269,12 @@ a {
 
 ul {
   list-style: none;
+}
+
+.theme-asset--monochrome {
+  transition: filter 0.25s ease, opacity 0.25s ease;
+}
+
+:root[data-theme='dark'] .theme-asset--monochrome {
+  filter: brightness(0) invert(0.9) contrast(1.02);
 }

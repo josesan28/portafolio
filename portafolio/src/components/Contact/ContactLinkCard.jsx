@@ -1,3 +1,5 @@
+import { isMonochromeIcon } from '../../utils/isMonochromeIcon'
+
 export default function ContactLinkCard({ link }) {
   return (
     <a
@@ -9,7 +11,7 @@ export default function ContactLinkCard({ link }) {
     >
       <span className="contact__link-mark" aria-hidden="true">
         <img
-          className="contact__link-icon"
+          className={`contact__link-icon ${isMonochromeIcon(link.icon) ? 'theme-asset--monochrome' : ''}`}
           src={link.icon}
           alt=""
           aria-hidden="true"

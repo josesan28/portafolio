@@ -1,3 +1,5 @@
+import { isMonochromeIcon } from '../../utils/isMonochromeIcon'
+
 export default function ProjectTechItem({ tech }) {
   return (
     <article className="project-detail__tech-item">
@@ -5,7 +7,7 @@ export default function ProjectTechItem({ tech }) {
         <img
           src={tech.icon}
           alt={tech.name}
-          className="project-detail__tech-icon"
+          className={`project-detail__tech-icon ${isMonochromeIcon(tech.icon) ? 'theme-asset--monochrome' : ''}`}
           loading="lazy"
         />
         <h3 className="project-detail__tech-name">{tech.name}</h3>

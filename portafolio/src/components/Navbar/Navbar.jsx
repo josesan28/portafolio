@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTheme } from '../../context/ThemeContext'
 import './Navbar.css'
 
 export default function Navbar() {
   const location = useLocation()
+  const { theme, toggleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeHash, setActiveHash] = useState(window.location.hash || '#about')
@@ -37,10 +39,11 @@ export default function Navbar() {
 
   const isHomeRoute = location.pathname === '/'
   const currentHash = isHomeRoute ? activeHash : location.hash
+  const isDarkTheme = theme === 'dark'
 
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <nav className="navbar__inner" aria-label="Navegacion principal">
+      <nav className="navbar__inner" aria-label="Navegación principal">
         <Link to="/#about" className="navbar__brand">
           José Sanchez
         </Link>
@@ -58,26 +61,43 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="/cv.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="navbar__cta"
-          download
-        >
-          Curriculum
-        </a>
+        <div className="navbar__controls">
+          <button
+            type="button"
+            className={`navbar__theme-toggle ${isDarkTheme ? 'navbar__theme-toggle--dark' : ''}`}
+            onClick={toggleTheme}
+            aria-label={`Cambiar tema. Tema actual: ${isDarkTheme ? 'oscuro' : 'claro'}`}
+          >
+            <span className="navbar__theme-toggle-track" aria-hidden="true">
+              <span className="navbar__theme-toggle-thumb" />
+            </span>
+            <span className="navbar__theme-toggle-label">
+              {isDarkTheme ? 'Oscuro' : 'Claro'}
+            </span>
+          </button>
 
-        <button
-          className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
-          onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label={menuOpen ? 'Cerrar menu' : 'Abrir menu'}
-          aria-expanded={menuOpen}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+          <a
+            href="/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="navbar__cta"
+            download
+          >
+            Currículum
+          </a>
+
+          <button
+            type="button"
+            className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </nav>
 
       <div className={`navbar__drawer ${menuOpen ? 'navbar__drawer--open' : ''}`}>
@@ -99,7 +119,7 @@ export default function Navbar() {
               className="navbar__drawer-link navbar__drawer-link--cta"
               download
             >
-              Curriculum
+              Currículum
             </a>
           </li>
         </ul>

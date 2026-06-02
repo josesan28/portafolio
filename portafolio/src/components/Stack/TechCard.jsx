@@ -1,3 +1,5 @@
+import { isMonochromeIcon } from '../../utils/isMonochromeIcon'
+
 export default function TechCard({ tech }) {
   return (
     <article className="stack__card">
@@ -5,7 +7,7 @@ export default function TechCard({ tech }) {
         <img
           src={tech.icon}
           alt={tech.name}
-          className="stack__icon"
+          className={`stack__icon ${isMonochromeIcon(tech.icon) ? 'theme-asset--monochrome' : ''}`}
           loading="lazy"
         />
         <span className="stack__category">{tech.category}</span>
