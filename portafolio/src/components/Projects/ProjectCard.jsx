@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
+import { getProjectActionLinks } from '../../utils/projectLinks'
 
 export default function ProjectCard({ project, index }) {
   const isEven = index % 2 === 0
+  const actionLinks = getProjectActionLinks(project.links)
 
   const handleProjectLinkClick = (event, href) => {
     if (href === '#') {
@@ -70,28 +72,20 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         <div className="project-card__actions">
-          <a
-            href={project.links.demo}
-            target={project.links.demo === '#' ? undefined : '_blank'}
-            rel={project.links.demo === '#' ? undefined : 'noopener noreferrer'}
-            className="project-card__btn project-card__btn--primary project-card__btn--layered"
-            onClick={(event) => handleProjectLinkClick(event, project.links.demo)}
-            aria-disabled={project.links.demo === '#'}
-            tabIndex={project.links.demo === '#' ? -1 : 0}
-          >
-            Demo en vivo
-          </a>
-          <a
-            href={project.links.repo}
-            target={project.links.repo === '#' ? undefined : '_blank'}
-            rel={project.links.repo === '#' ? undefined : 'noopener noreferrer'}
-            className="project-card__btn project-card__btn--secondary project-card__btn--layered"
-            onClick={(event) => handleProjectLinkClick(event, project.links.repo)}
-            aria-disabled={project.links.repo === '#'}
-            tabIndex={project.links.repo === '#' ? -1 : 0}
-          >
-            Repositorio
-          </a>
+          {actionLinks.map((link) => (
+            <a
+              key={link.key}
+              href={link.href}
+              target={link.href === '#' ? undefined : '_blank'}
+              rel={link.href === '#' ? undefined : 'noopener noreferrer'}
+              className={`project-card__btn project-card__btn--${link.variant} project-card__btn--layered`}
+              onClick={(event) => handleProjectLinkClick(event, link.href)}
+              aria-disabled={link.href === '#'}
+              tabIndex={link.href === '#' ? -1 : 0}
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
       </div>
     </article>

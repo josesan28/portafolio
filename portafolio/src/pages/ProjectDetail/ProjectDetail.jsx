@@ -2,11 +2,13 @@ import { Link, Navigate, useParams } from 'react-router-dom'
 import ProjectFeatureCard from '../../components/ProjectDetail/ProjectFeatureCard'
 import ProjectTechItem from '../../components/ProjectDetail/ProjectTechItem'
 import { getProjectById } from '../../data/projects'
+import { getProjectActionLinks } from '../../utils/projectLinks'
 import './ProjectDetail.css'
 
 export default function ProjectDetail() {
   const { projectId } = useParams()
   const project = getProjectById(projectId)
+  const actionLinks = getProjectActionLinks(project?.links)
 
   if (!project) {
     return <Navigate to="/#projects" replace />
@@ -42,28 +44,20 @@ export default function ProjectDetail() {
             </div>
 
             <div className="project-detail__actions">
-              <a
-                href={project.links.demo}
-                target={project.links.demo === '#' ? undefined : '_blank'}
-                rel={project.links.demo === '#' ? undefined : 'noopener noreferrer'}
-                className="project-detail__btn project-detail__btn--primary"
-                onClick={(event) => handlePlaceholderLinkClick(event, project.links.demo)}
-                aria-disabled={project.links.demo === '#'}
-                tabIndex={project.links.demo === '#' ? -1 : 0}
-              >
-                Demo en vivo
-              </a>
-              <a
-                href={project.links.repo}
-                target={project.links.repo === '#' ? undefined : '_blank'}
-                rel={project.links.repo === '#' ? undefined : 'noopener noreferrer'}
-                className="project-detail__btn project-detail__btn--secondary"
-                onClick={(event) => handlePlaceholderLinkClick(event, project.links.repo)}
-                aria-disabled={project.links.repo === '#'}
-                tabIndex={project.links.repo === '#' ? -1 : 0}
-              >
-                Repositorio
-              </a>
+              {actionLinks.map((link) => (
+                <a
+                  key={link.key}
+                  href={link.href}
+                  target={link.href === '#' ? undefined : '_blank'}
+                  rel={link.href === '#' ? undefined : 'noopener noreferrer'}
+                  className={`project-detail__btn project-detail__btn--${link.variant}`}
+                  onClick={(event) => handlePlaceholderLinkClick(event, link.href)}
+                  aria-disabled={link.href === '#'}
+                  tabIndex={link.href === '#' ? -1 : 0}
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>

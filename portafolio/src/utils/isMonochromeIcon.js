@@ -17,7 +17,8 @@ const monochromeIcons = new Set([
   '/tech/postgresql.svg',
   '/tech/python.svg',
   '/tech/react.svg',
-  '/tech/vite.svg'
+  '/tech/vite.svg',
+  '/tech/sequelize.svg'
 ])
 
 export function isMonochromeIcon(iconPath = '') {
