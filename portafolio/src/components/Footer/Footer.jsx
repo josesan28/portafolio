@@ -26,11 +26,6 @@ export default function Footer() {
               GitHub
             </a>
           </li>
-          <li>
-            <a href="mailto:san24092@uvg.edu.gt" className="footer__link">
-              Correo
-            </a>
-          </li>
         </ul>
 
       </div>
