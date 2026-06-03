@@ -93,13 +93,6 @@ const technologies = [
     reason:
       'Practico programación orientada a objetos y puedo trabajar en proyectos donde el tipado y la estructura son importantes.',
   },
-  {
-    category: 'Lenguaje',
-    name: 'Kotlin',
-    icon: '/tech/kotlin.svg',
-    reason:
-      'Aprendo desarrollo moderno con sintaxis concisa y segura, especialmente para Android.',
-  },
 ]
 
 export default function Stack() {

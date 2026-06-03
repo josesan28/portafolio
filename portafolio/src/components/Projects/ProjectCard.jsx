@@ -12,7 +12,10 @@ export default function ProjectCard({ project, index }) {
   }
 
   return (
-    <article className={`project-card ${isEven ? '' : 'project-card--reverse'}`}>
+    <article
+      id={project.id}
+      className={`project-card ${isEven ? '' : 'project-card--reverse'}`}
+    >
       <div className="project-card__image-col">
         <Link
           to={`/proyectos/${project.id}`}
@@ -29,6 +32,12 @@ export default function ProjectCard({ project, index }) {
                 e.target.nextSibling.style.display = 'flex'
               }}
             />
+            <div className="project-card__image-overlay" aria-hidden="true">
+              <span className="project-card__image-cta">
+                Ver detalles
+                <span className="project-card__image-cta-arrow">↗</span>
+              </span>
+            </div>
             <div className="project-card__image-placeholder" style={{ display: 'none' }}>
               <span className="project-card__image-placeholder-text">
                 Vista previa
@@ -71,6 +80,17 @@ export default function ProjectCard({ project, index }) {
           ))}
         </div>
 
+        <Link
+          to={`/proyectos/${project.id}`}
+          className="project-card__detail-link"
+          aria-label={`Ver más información de ${project.title}`}
+        >
+          Ver detalles
+          <span className="project-card__detail-link-arrow" aria-hidden="true">
+            →
+          </span>
+        </Link>
+
         <div className="project-card__actions">
           {actionLinks.map((link) => (
             <a
@@ -83,6 +103,14 @@ export default function ProjectCard({ project, index }) {
               aria-disabled={link.href === '#'}
               tabIndex={link.href === '#' ? -1 : 0}
             >
+              {link.icon ? (
+                <img
+                  src={link.icon}
+                  alt=""
+                  aria-hidden="true"
+                  className="project-card__btn-icon-image theme-asset--monochrome"
+                />
+              ) : null}
               {link.label}
             </a>
           ))}

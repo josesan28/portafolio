@@ -18,14 +18,15 @@ const skills = [
   'SQLite',
   'Python',
   'Java',
-  'Kotlin',
 ]
 
 const actions = [
   {
-    href: 'mailto:san24092@uvg.edu.gt',
-    label: 'Contáctame',
+    label: 'san24092@uvg.edu.gt',
+    value: 'san24092@uvg.edu.gt',
+    type: 'copy',
     variant: 'about__btn--primary',
+    icon: '/tech/mail.svg',
   },
   {
     href: 'https://github.com/josesan28',
@@ -33,6 +34,7 @@ const actions = [
     variant: 'about__btn--secondary',
     target: '_blank',
     rel: 'noopener noreferrer',
+    icon: '/tech/github.svg',
   },
 ]
 
@@ -40,12 +42,12 @@ const timelineItems = [
   {
     date: '2024 - 2026',
     title: 'Universidad del Valle de Guatemala',
-    description: 'Aquí escribo lo que he aprendido en esta etapa.',
+    description: 'Actualmente estudiando en Tercer Año de la carrera de Ingeniería en Ciencias de la Computación y Tecnologías de la Información.',
   },
   {
-    date: '2026',
-    title: 'Proyecto destacado',
-    description: 'Voy a describir el proyecto de Software.',
+    date: '2026 - Hoy',
+    title: 'Proyecto más grande hasta la fecha',
+    description: 'Se encuentra en desarrollo un proyecto para una cadena de farmacias local, utilizando React para el frontend, Node.js y Express para el backend, y PostgreSQL para la base de datos. Este proyecto lo considero especial porque me ha permitido aplicar mis conocimientos en un entorno real y mejorar mis habilidades de desarrollo.',
     current: true,
   },
 ]
@@ -61,8 +63,10 @@ export default function About() {
           <p className="about__role">Desarrollador Full-Stack Junior - Estudiante</p>
 
           <p className="about__bio">
-            Actualmente soy estudiante de Ingeniería en Ciencias de la Computación y Tecnologías de la Información.
-            Puedo construir aplicaciones web completas utilizando tecnologías modernas como React, Node.js y Docker. Me gusta aprender nuevas tecnologías y mejorar mis habilidades constantemente.
+            Actualmente soy estudiante universitario. Puedo construir
+            aplicaciones web completas utilizando tecnologías modernas como
+            React, Node.js y Docker. Me gusta aprender nuevas tecnologías y
+            mejorar mis habilidades constantemente.
           </p>
 
           <div className="about__story">

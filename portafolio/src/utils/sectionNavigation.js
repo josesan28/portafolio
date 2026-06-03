@@ -40,7 +40,10 @@ export function clearSectionNavigation() {
   delete window[SECTION_NAVIGATION_KEY]
 }
 
-export function scrollToSectionId(sectionId, { updateHistory = false, historyMode = 'push' } = {}) {
+export function scrollToSectionId(
+  sectionId,
+  { updateHistory = false, historyMode = 'push', behavior: preferredBehavior } = {},
+) {
   const target = document.getElementById(sectionId)
 
   if (!target) {
@@ -64,7 +67,9 @@ export function scrollToSectionId(sectionId, { updateHistory = false, historyMod
     return true
   }
 
-  const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  const behavior =
+    preferredBehavior ||
+    (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth')
   const startedAt = window.performance.now()
 
   const finishNavigation = () => {

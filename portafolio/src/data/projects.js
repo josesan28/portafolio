@@ -22,14 +22,29 @@ export const projects = [
           'La sesión se maneja con JWT en cookie httpOnly y el frontend restaura el usuario al recargar para no romper la experiencia. Además, los permisos no se quedan en la interfaz: el backend también valida roles antes de permitir acciones administrativas.',
       },
       {
+        title: 'Módulos administrativos conectados entre sí',
+        description:
+          'Sucursales, productos, proveedores, casas farmacéuticas y presentaciones no se resolvieron como pantallas sueltas. El valor del sistema está en que esas entidades se relacionan entre sí y permiten que inventario, abastecimiento y administración compartan contexto en lugar de duplicar información.',
+      },
+      {
         title: 'Inventario con lotes y vencimientos',
         description:
           'Productos, presentaciones, proveedores, sucursales y lotes no se trataron como tablas aisladas. La estructura relacional y la vista para estado de vencimiento y stock permitieron mover parte de la lógica importante al nivel de datos, donde se vuelve más consistente y fácil de reutilizar.',
       },
       {
+        title: 'API REST organizada por responsabilidades',
+        description:
+          'El backend no se planteó como un solo archivo de rutas. La separación en controladores, servicios y acceso a datos ayudó a que cada módulo del sistema tuviera un punto claro donde resolver validaciones, reglas del negocio y comunicación con la base de datos.',
+      },
+      {
         title: 'Entorno fácil de reproducir',
         description:
           'El proyecto corre con Docker Compose sobre contenedores separados para frontend, backend y PostgreSQL, incluyendo datos semilla. Eso vuelve mucho más simple probar el sistema, compartirlo y levantarlo sin depender de configuraciones manuales distintas en cada equipo.',
+      },
+      {
+        title: 'Base preparada para crecimiento funcional',
+        description:
+          'Aunque el proyecto sigue en desarrollo, la estructura ya está pensada para crecer sin rehacer lo principal. Tener una SPA conectada a una API propia, con roles, catálogo e inventario modelados desde temprano, deja una base mucho más cómoda para agregar reportes, compras o movimientos internos más adelante.',
       },
     ],
     stack: [
@@ -300,7 +315,7 @@ export const projects = [
       },
       {
         name: 'Storybook',
-        icon: '/tech/github.svg',
+        icon: '/tech/storybook.svg',
         reason:
           'Lo incorporé para documentar y revisar componentes, algo que ayuda mucho cuando se quiere tratar la interfaz como un sistema.',
       },
@@ -389,7 +404,7 @@ export const projects = [
     ],
     tags: ['React', 'JavaScript', 'CSS', 'Vite', 'ESLint'],
     links: {
-      demo: '#',
+      demo: 'https://josesan28.github.io/lab-6-snake-web/',
       repo: 'https://github.com/josesan28/lab-6-snake-web',
     },
     image: '/proyecto-5.png',

@@ -24,7 +24,11 @@ export default function ProjectDetail() {
     <section className="project-detail" aria-label={`Detalle de ${project.title}`}>
       <header className="project-detail__header">
         <div className="project-detail__header-copy">
-          <Link to="/#projects" className="project-detail__back-link">
+          <Link
+            to={`/#${project.id}`}
+            state={{ scrollBehavior: 'auto' }}
+            className="project-detail__back-link"
+          >
             <span className="project-detail__back-icon" aria-hidden="true">
               &larr;
             </span>
@@ -55,6 +59,14 @@ export default function ProjectDetail() {
                   aria-disabled={link.href === '#'}
                   tabIndex={link.href === '#' ? -1 : 0}
                 >
+                  {link.icon ? (
+                    <img
+                      src={link.icon}
+                      alt=""
+                      aria-hidden="true"
+                      className="project-detail__btn-icon-image theme-asset--monochrome"
+                    />
+                  ) : null}
                   {link.label}
                 </a>
               ))}

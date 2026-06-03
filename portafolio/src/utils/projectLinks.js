@@ -17,6 +17,7 @@ export function getProjectActionLinks(links) {
         label: repository.label ?? 'Repositorio',
         href: repository.href ?? '#',
         variant: 'secondary',
+        icon: '/tech/github.svg',
       })
     })
 
@@ -29,6 +30,7 @@ export function getProjectActionLinks(links) {
       label: 'Repositorio',
       href: links.repo,
       variant: 'secondary',
+      icon: '/tech/github.svg',
     })
   }
 

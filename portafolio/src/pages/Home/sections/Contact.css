@@ -81,6 +81,16 @@
   border-color: var(--color-accent-green-border-strong);
 }
 
+.contact__link-card--static {
+  cursor: default;
+}
+
+.contact__link-card--static:hover {
+  transform: none;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border);
+}
+
 .contact__link-card:focus-visible {
   outline: 2px solid var(--color-accent-green);
   outline-offset: 4px;

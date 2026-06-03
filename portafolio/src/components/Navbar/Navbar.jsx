@@ -50,7 +50,10 @@ export default function Navbar() {
 
     event.preventDefault()
     setMenuOpen(false)
-    scrollToSectionId(hash.replace('#', ''), { updateHistory: true, historyMode: 'push' })
+    scrollToSectionId(hash.replace('#', ''), {
+      updateHistory: true,
+      historyMode: 'push',
+    })
   }
 
   return (
@@ -94,11 +97,10 @@ export default function Navbar() {
           </button>
 
           <a
-            href="/cv.pdf"
+            href="/cv-jose-sanchez-2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="navbar__cta"
-            download
           >
             Currículum
           </a>
@@ -132,9 +134,10 @@ export default function Navbar() {
           ))}
           <li>
             <a
-              href="/cv.pdf"
+              href="/cv-jose-sanchez-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="navbar__drawer-link navbar__drawer-link--cta"
-              download
             >
               Currículum
             </a>

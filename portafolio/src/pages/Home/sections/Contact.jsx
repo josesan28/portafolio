@@ -11,18 +11,15 @@ const contactLinks = [
     icon: '/tech/github.svg',
   },
   {
-    href: 'mailto:san24092@uvg.edu.gt',
     label: 'Correo',
-    detail: 'La forma más directa de escribirme.',
-    external: false,
+    detail: 'san24092@uvg.edu.gt',
     icon: '/tech/mail.svg',
   },
   {
-    href: '/cv.pdf',
+    href: '/cv-jose-sanchez-2026.pdf',
     label: 'Currículum',
-    detail: 'Resumen rápido de experiencia y stack.',
+    detail: 'Abrir PDF y descargarlo si lo necesitas.',
     external: true,
-    download: true,
     icon: '/tech/cv.svg',
   },
 ]
@@ -34,8 +31,8 @@ export default function Contact() {
         <span className="contact__eyebrow">Contacto</span>
         <h2 className="contact__title">Conversemos</h2>
         <p className="contact__subtitle">
-          Estoy abierto a escuchar propuestas, colaboraciones
-          o incluso una crítica constructiva sobre mi trabajo.
+          Estoy abierto a escuchar propuestas, colaboraciones o incluso una
+          crítica constructiva sobre mi trabajo.
         </p>
       </header>
 
